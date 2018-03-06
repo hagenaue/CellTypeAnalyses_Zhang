@@ -44,6 +44,19 @@ abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*27.5), b=0, co
 abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*25), b=0, col="red")
 dev.off()
 
+#prettier version:
+
+pdf("AstrocyteMixtureRatiosVsIndex_NoZhang.pdf", height=5, width=4)
+plot(apply(AstrocyteMixtures[c(1:4),], 2, mean)~AstrocyteMixtureRatios, pch=18, ylab="Astrocyte Index", xlab="Astrocyte Mixture (% Astrocyte)")
+BestFitLine<-lm(apply(AstrocyteMixtures[c(1:4),], 2, mean)~AstrocyteMixtureRatios)
+abline(BestFitLine, lwd=2)
+abline(a=(BestFitLine$coefficients[1]+summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+abline(a=(BestFitLine$coefficients[1]-summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*30), b=0, col="red", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*27.5), b=0, col="green", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*25), b=0, col="red", lwd=2)
+dev.off()
 
 #Version 2: Using whole brain as the background instead of a random sampling of cells
 AstrocyteMixtures<-matrix(0, length(names(table(ZscoreZhang_Expression_CellType_NoPrimaryOverlap$Tag))), 30)
@@ -116,6 +129,20 @@ abline(a=(BestFitLine$coefficients[1]-summary.lm(BestFitLine)[[6]]), b=BestFitLi
 abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*30), b=0, col="red")
 abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*27.5), b=0, col="green")
 abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*25), b=0, col="red")
+dev.off()
+
+#prettier version:
+
+pdf("OligodendrocyteMixtureRatiosVsIndex_NoZhang.pdf", height=5, width=4)
+plot(apply(OligodendrocyteMixtures[c(29:33),], 2, mean)~OligodendrocyteMixtureRatios, pch=18, ylab="Oligodendrocyte Index", xlab="Oligodendrocyte Mixture (% Oligodendrocyte)")
+BestFitLine<-lm(apply(OligodendrocyteMixtures[c(29:33),], 2, mean)~OligodendrocyteMixtureRatios)
+abline(BestFitLine, lwd=2)
+abline(a=(BestFitLine$coefficients[1]+summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+abline(a=(BestFitLine$coefficients[1]-summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*30), b=0, col="red", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*27.5), b=0, col="green", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*25), b=0, col="red", lwd=2)
 dev.off()
 
 
@@ -192,6 +219,21 @@ abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*17.5), b=0, co
 abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*20), b=0, col="red")
 dev.off()
 
+#Prettier version:
+
+pdf("MicrogliaMixtureRatiosVsIndex_NoZhang.pdf", height=5, width=4)
+plot(apply(MicrogliaMixtures[c(10:11),], 2, mean)~MicrogliaMixtureRatios, pch=18, ylab="Microglia Index", xlab="Microglia Mixture (% Microglia)")
+BestFitLine<-lm(apply(MicrogliaMixtures[c(10:11),], 2, mean)~MicrogliaMixtureRatios)
+abline(BestFitLine, lwd=2)
+abline(a=(BestFitLine$coefficients[1]+summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+abline(a=(BestFitLine$coefficients[1]-summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*15), b=0, col="red", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*17.5), b=0, col="green", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*20), b=0, col="red", lwd=2)
+dev.off()
+
+
 EndothelialMixtures<-matrix(0, length(names(table(ZscoreZhang_Expression_CellType_NoPrimaryOverlap$Tag))), 30)
 row.names(EndothelialMixtures)<-names(table(ZscoreZhang_Expression_CellType_NoPrimaryOverlap$Tag))
 EndothelialMixtureRatios<-c(rep(1, 5), rep(6, 5), rep(11, 5), rep(16,5), rep(21,5), rep(26,5))
@@ -230,6 +272,22 @@ abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*7.5), b=0, col
 abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*10), b=0, col="red")
 dev.off()
 
+#prettier version:
+
+pdf("EndothelialMixtureRatiosVsIndex_NoZhang.pdf", height=5, width=4)
+plot(apply(EndothelialMixtures[c(6:8),], 2, mean)~EndothelialMixtureRatios, pch=18, ylab="Endothelial Index", xlab="Endothelial Mixture (% Endothelial)")
+BestFitLine<-lm(apply(EndothelialMixtures[c(6:8),], 2, mean)~EndothelialMixtureRatios)
+abline(BestFitLine, lwd=2)
+abline(a=(BestFitLine$coefficients[1]+summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+abline(a=(BestFitLine$coefficients[1]-summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*5), b=0, col="red", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*7.5), b=0, col="green", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*10), b=0, col="red", lwd=2)
+dev.off()
+
+
+
 NeuronMixtures<-matrix(0, length(names(table(ZscoreZhang_Expression_CellType_NoPrimaryOverlap$Tag))), 30)
 row.names(NeuronMixtures)<-names(table(ZscoreZhang_Expression_CellType_NoPrimaryOverlap$Tag))
 NeuronMixtureRatios<-c(rep(25, 5), rep(30, 5), rep(35, 5), rep(40,5), rep(45,5), rep(50,5))
@@ -266,6 +324,20 @@ abline(a=(BestFitLine$coefficients[1]-summary.lm(BestFitLine)[[6]]), b=BestFitLi
 abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*35), b=0, col="red")
 abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*37.5), b=0, col="green")
 abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*40), b=0, col="red")
+dev.off()
+
+#Prettier version:
+
+pdf("NeuronMixtureRatiosVsIndex_NoZhang.pdf", height=5, width=4)
+plot(apply(NeuronMixtures[c(16:17),], 2, mean)~NeuronMixtureRatios, pch=18, ylab="Neuron Index", xlab="Neuron Mixture (% Neuron)")
+BestFitLine<-lm(apply(NeuronMixtures[c(16:17),], 2, mean)~NeuronMixtureRatios)
+abline(BestFitLine, lwd=2)
+abline(a=(BestFitLine$coefficients[1]+summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+abline(a=(BestFitLine$coefficients[1]-summary.lm(BestFitLine)[[6]]), b=BestFitLine$coefficients[2], col="grey", lwd=2)
+
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*35), b=0, col="red", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*37.5), b=0, col="green", lwd=2)
+abline(a=BestFitLine$coefficients[1]+(BestFitLine$coefficients[2]*40), b=0, col="red", lwd=2)
 dev.off()
 
 
