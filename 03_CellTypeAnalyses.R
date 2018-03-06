@@ -246,6 +246,19 @@ for(i in 1:nrow(ZscoreZhang_Expression_CellType_NoPrimaryOverlap_MeanTag)){
 }
 
 
+                                                            
+CorrelationCoefficients_CellTypeIndexVsCellType<-matrix(0, 38, 7)
+colnames(CorrelationCoefficients_CellTypeIndexVsCellType)<-names(table(ExperimentalCellType[ExperimentalCellType!="WholeBrain"]))
+row.names(CorrelationCoefficients_CellTypeIndexVsCellType)<-row.names(ZscoreZhang_Expression_CellType_NoPrimaryOverlap_MeanTag)
+for(i in c(1:38)){
+for(j in c(1:7)){
+temp<-summary.lm(lm(ZscoreZhang_Expression_CellType_NoPrimaryOverlap_MeanTag[i,ExperimentalCellType!="WholeBrain"]~(ExperimentalCellType[ExperimentalCellType!="WholeBrain"]==names(table(ExperimentalCellType[ExperimentalCellType!="WholeBrain"]))[j])))
+CorrelationCoefficients_CellTypeIndexVsCellType[i,j]<-temp$r.squared
+}
+}
+
+write.csv(CorrelationCoefficients_CellTypeIndexVsCellType, "CorrelationCoefficients_CellTypeIndexVsCellType.csv")
+
 
 
 #Plotting all the cell type tags for each cell type:
